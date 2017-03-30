@@ -5,7 +5,7 @@
     "keywords": [
         "whole-value"
     ],
-    "license": "GPL-3.0",
+    "license": "MIT",
     "support": {
         "issues": "https://github.com/stevenberg/wholesome-values/issues",
         "source": "https://github.com/stevenberg/wholesome-values"
