@@ -30,16 +30,16 @@ class TextTest extends TestCase
         $this->assertEquals('test', $text->value());
     }
 
-    public function testNonStringValue()
+    public function testFromNonStringValue()
     {
         $text = Text::from(1);
 
         $this->assertInstanceOf(ExceptionalValue::class, $text);
     }
 
-    public function testEmptyStringValue()
+    public function testFromEmptyStringValue()
     {
-        $text = Text::From('');
+        $text = Text::from('');
 
         $this->assertInstanceOf(ExceptionalValue::class, $text);
     }
