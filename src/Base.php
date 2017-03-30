@@ -42,11 +42,13 @@ abstract class Base implements Value
 
     public static function from($value): Value
     {
-        if (!is_a($value, static::class) && !static::validate($value)) {
+        if (is_a($value, static::class)) {
+            return $value;
+        } elseif (static::validate($value)) {
+            return static::get($value);
+        } else {
             return new ExceptionalValue($value, static::invalidReason());
         }
-
-        return static::get($value);
     }
 
     public static function get($value): Base

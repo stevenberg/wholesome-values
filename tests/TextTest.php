@@ -43,4 +43,11 @@ class TextTest extends TestCase
 
         $this->assertInstanceOf(ExceptionalValue::class, $text);
     }
+
+    public function testFromTextValue()
+    {
+        $text = Text::from('test');
+
+        $this->assertEquals($text, Text::from($text));
+    }
 }
