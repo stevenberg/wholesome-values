@@ -16,18 +16,23 @@ use StevenBerg\WholesomeValues\Text;
 
 class TextTest extends TestCase
 {
+    protected function setUp()
+    {
+        $this->text = Text::from('test');
+    }
     public function testIsExceptional()
     {
-        $text = Text::from('test');
-
-        $this->assertFalse($text->isExceptional());
+        $this->assertFalse($this->text->isExceptional());
     }
 
     public function testValue()
     {
-        $text = Text::from('test');
+        $this->assertEquals('test', $this->text->value());
+    }
 
-        $this->assertEquals('test', $text->value());
+    public function testToString()
+    {
+        $this->assertEquals('test', (string) $this->text);
     }
 
     public function testFromNonStringValue()
@@ -46,8 +51,6 @@ class TextTest extends TestCase
 
     public function testFromTextValue()
     {
-        $text = Text::from('test');
-
-        $this->assertEquals($text, Text::from($text));
+        $this->assertEquals($this->text, Text::from($this->text));
     }
 }
