@@ -51,7 +51,7 @@ abstract class Base implements Value
         }
     }
 
-    public static function get($value): Base
+    public static function get($value): self
     {
         if (!isset(static::$values[static::class])) {
             static::$values[static::class] = [];
