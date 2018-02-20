@@ -20,6 +20,7 @@ class TextTest extends TestCase
     {
         $this->text = Text::from('test');
     }
+
     public function testIsExceptional()
     {
         $this->assertFalse($this->text->isExceptional());

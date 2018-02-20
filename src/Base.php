@@ -12,15 +12,18 @@ namespace StevenBerg\WholesomeValues;
 
 abstract class Base implements Value
 {
-    abstract protected static function validate($value): bool;
-
-    abstract protected static function invalidReason(): string;
-
     protected $value;
+
+    protected static $values = [];
 
     protected function __construct($value)
     {
         $this->value = $value;
+    }
+
+    public function __toString(): string
+    {
+        return (string) $this->value;
     }
 
     public function isExceptional(): bool
@@ -33,22 +36,15 @@ abstract class Base implements Value
         return $this->value;
     }
 
-    public function __toString(): string
-    {
-        return (string) $this->value;
-    }
-
-    protected static $values = [];
-
     public static function from($value): Value
     {
         if (is_a($value, static::class)) {
             return $value;
         } elseif (static::validate($value)) {
             return static::get($value);
-        } else {
-            return new ExceptionalValue($value, static::invalidReason());
         }
+
+        return new ExceptionalValue($value, static::invalidReason());
     }
 
     public static function get($value): self
@@ -63,4 +59,8 @@ abstract class Base implements Value
 
         return static::$values[static::class][$value];
     }
+
+    abstract protected static function validate($value): bool;
+
+    abstract protected static function invalidReason(): string;
 }

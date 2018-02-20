@@ -12,6 +12,11 @@ namespace StevenBerg\WholesomeValues;
 
 class Blank implements Value
 {
+    public function __toString(): string
+    {
+        return $this->value();
+    }
+
     public function isExceptional(): bool
     {
         return false;
@@ -20,10 +25,5 @@ class Blank implements Value
     public function value()
     {
         return '';
-    }
-
-    public function __toString(): string
-    {
-        return $this->value();
     }
 }

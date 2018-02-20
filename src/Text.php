@@ -14,7 +14,7 @@ class Text extends Base
 {
     protected static function validate($value): bool
     {
-        return is_string($value) && strlen($value) > 0;
+        return is_string($value) && mb_strlen($value) > 0;
     }
 
     protected static function invalidReason(): string

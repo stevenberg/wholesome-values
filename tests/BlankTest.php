@@ -19,6 +19,7 @@ class BlankTest extends TestCase
     {
         $this->blank = new Blank;
     }
+
     public function testIsExceptional()
     {
         $this->assertFalse($this->blank->isExceptional());

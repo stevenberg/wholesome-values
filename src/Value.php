@@ -12,9 +12,9 @@ namespace StevenBerg\WholesomeValues;
 
 interface Value
 {
+    public function __toString(): string;
+
     public function isExceptional(): bool;
 
     public function value();
-
-    public function __toString(): string;
 }

@@ -21,6 +21,11 @@ class ExceptionalValue implements Value
         $this->reason = $reason;
     }
 
+    public function __toString(): string
+    {
+        return (string) $this->value;
+    }
+
     public function isExceptional(): bool
     {
         return true;
@@ -34,10 +39,5 @@ class ExceptionalValue implements Value
     public function reason(): string
     {
         return $this->reason;
-    }
-
-    public function __toString(): string
-    {
-        return (string) $this->value;
     }
 }

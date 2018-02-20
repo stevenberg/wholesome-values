@@ -19,6 +19,7 @@ class ExceptionalValueTest extends TestCase
     {
         $this->value = new ExceptionalValue('test', 'must not be test');
     }
+
     public function testIsExceptional()
     {
         $this->assertTrue($this->value->isExceptional());
